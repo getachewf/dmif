@@ -1,4 +1,4 @@
-#Linking Web service based models
+#Linking Rabbit and Fox models: Web service based approach
 
 DMIF is distributed model integration framework. It is going through iterative development and currently it is in prototype stage. One of the major challenges in integrating models is heterogeneity of hardware and software platforms of the participating models. To address this major challenge,  our approach is to  develop the framework using service-oriented architecture. In short, participating models are presented as Web services and the framework facilitates the communication between these Web service based models.
 As a proof of concept of our approach and to investigate different model integration scenarios  we have implemented the classic Lotka-Volterra predator–prey model as two separate predator  and prey models. We call the predator model as Fox model and the prey model as Rabbit model. The Fox model is developed using Java and the Rabbit model is developed using C++. To present these models as Web services we have developed java Web service on top of the Fox model and C# based Web service for the Rabbit model.
