@@ -16,3 +16,5 @@ To utilize this framework follow the instructions given below:
 -	After setting service references run the framework, go to ‘Integration’ menu and select ‘Fox-Rabbit’, you will find a a web form to define simulation inputs.
 -	To start the simulation provide appropriate inputs and click the run button. At the end of the simulation the output will be displayed as graphs and list of time-series data as show in dmif_3.png.
 -	To save the output data click ‘Save Output’, it will store the data in Ms Access database named fmdb.accdb, specifically under tbloutput table. The table contains columns time step of rabbit model, time steps of fox model, integration method used (i.e. Euler or Rune-Kutta), population of rabbit, and population of fox.
+
+If you have any difficulty in using this framework feel free to contact getfeleke@gmail.com
