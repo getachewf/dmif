@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://get.org/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://get.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://get.org/">
+      <s:element name="pop_increase">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="rabpop" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="foxpop" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="pop_increaseResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="pop_increaseResult" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="pop_inc">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="rabpop" type="s:float" />
+            <s:element minOccurs="1" maxOccurs="1" name="foxpop" type="s:float" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="pop_incResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="pop_incResult" type="s:float" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="pop_list">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="initpop" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="yr" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="pop_listResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="pop_listResult" type="tns:ArrayOfInt" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfInt">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="int" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="pop_increaseSoapIn">
+    <wsdl:part name="parameters" element="tns:pop_increase" />
+  </wsdl:message>
+  <wsdl:message name="pop_increaseSoapOut">
+    <wsdl:part name="parameters" element="tns:pop_increaseResponse" />
+  </wsdl:message>
+  <wsdl:message name="pop_incSoapIn">
+    <wsdl:part name="parameters" element="tns:pop_inc" />
+  </wsdl:message>
+  <wsdl:message name="pop_incSoapOut">
+    <wsdl:part name="parameters" element="tns:pop_incResponse" />
+  </wsdl:message>
+  <wsdl:message name="pop_listSoapIn">
+    <wsdl:part name="parameters" element="tns:pop_list" />
+  </wsdl:message>
+  <wsdl:message name="pop_listSoapOut">
+    <wsdl:part name="parameters" element="tns:pop_listResponse" />
+  </wsdl:message>
+  <wsdl:portType name="rabwsSoap">
+    <wsdl:operation name="pop_increase">
+      <wsdl:input message="tns:pop_increaseSoapIn" />
+      <wsdl:output message="tns:pop_increaseSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="pop_inc">
+      <wsdl:input message="tns:pop_incSoapIn" />
+      <wsdl:output message="tns:pop_incSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="pop_list">
+      <wsdl:input message="tns:pop_listSoapIn" />
+      <wsdl:output message="tns:pop_listSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="rabwsSoap" type="tns:rabwsSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="pop_increase">
+      <soap:operation soapAction="http://get.org/pop_increase" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="pop_inc">
+      <soap:operation soapAction="http://get.org/pop_inc" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="pop_list">
+      <soap:operation soapAction="http://get.org/pop_list" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="rabwsSoap12" type="tns:rabwsSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="pop_increase">
+      <soap12:operation soapAction="http://get.org/pop_increase" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="pop_inc">
+      <soap12:operation soapAction="http://get.org/pop_inc" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="pop_list">
+      <soap12:operation soapAction="http://get.org/pop_list" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="rabws">
+    <wsdl:port name="rabwsSoap" binding="tns:rabwsSoap">
+      <soap:address location="http://localhost:33298/rabws.asmx" />
+    </wsdl:port>
+    <wsdl:port name="rabwsSoap12" binding="tns:rabwsSoap12">
+      <soap12:address location="http://localhost:33298/rabws.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

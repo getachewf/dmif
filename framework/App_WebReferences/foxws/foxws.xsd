@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://fox/" targetNamespace="http://fox/" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:element name="foxpop_inc" type="tns:foxpop_inc" />
+  <xs:element name="foxpop_incResponse" type="tns:foxpop_incResponse" />
+  <xs:element name="pop_inc" type="tns:pop_inc" />
+  <xs:element name="pop_incResponse" type="tns:pop_incResponse" />
+  <xs:complexType name="foxpop_inc">
+    <xs:sequence>
+      <xs:element name="arg0" type="xs:float" />
+      <xs:element name="arg1" type="xs:float" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="foxpop_incResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:float" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="pop_inc">
+    <xs:sequence>
+      <xs:element name="arg0" type="xs:int" />
+      <xs:element name="arg1" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="pop_incResponse">
+    <xs:sequence>
+      <xs:element name="return" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>

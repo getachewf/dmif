@@ -1,0 +1,97 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="mdmif.master.cs" Inherits="mdmif" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <style type="text/css">
+        .style2
+        {
+            width: 124px;
+        }
+        .style3
+        {
+            width: 937px;
+        }
+        .style4
+        {
+            width: 146px;
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+    <div>
+    <table width="100%" height="65" bgcolor="#669999">
+      <tr>
+        <td class="style2"  >
+        
+        </td>
+        <td>
+        
+            <asp:Label ID="Label1" runat="server" Font-Size="XX-Large" ForeColor="White" 
+                Text="Distributed Model Integration Framework (DMIF)"></asp:Label>
+        
+        </td>
+      
+      </tr>
+    
+    </table>
+    <table width="100%" height="25" bgcolor="#0099CC">
+     <tr>
+       <td class="style4" bgcolor="#0099CC">
+       
+       </td>
+       <td class="style3">
+       
+           <asp:Menu ID="Menu1" runat="server" Height="16px" Orientation="Horizontal" 
+               Width="661px" ForeColor="#333333" onmenuitemclick="Menu1_MenuItemClick">
+               <Items>
+                   <asp:MenuItem Text="Home" Value="Home" NavigateUrl="~/mainpage.aspx"></asp:MenuItem>
+                   <asp:MenuItem Text="Models" Value="Models">
+                       <asp:MenuItem Text="Rabbit Model" Value="Rabbit Model" 
+                           NavigateUrl="~/rabbit.aspx"></asp:MenuItem>
+                       <asp:MenuItem Text="Fox Model" Value="Fox Model"></asp:MenuItem>
+                       <asp:MenuItem NavigateUrl="~/exiomod.aspx" Text="EXIOMOD " Value="Exiomod">
+                       </asp:MenuItem>
+                       <asp:MenuItem NavigateUrl="~/gcam.aspx" Text="GCAM" Value="GCAM"></asp:MenuItem>
+                   </asp:MenuItem>
+                   <asp:MenuItem Text="Integration" Value="Integration">
+                       <asp:MenuItem NavigateUrl="~/rab_fox.aspx" Text="Fox-Rabbit" Value="Fox-Rabbit">
+                       </asp:MenuItem>
+                       <asp:MenuItem NavigateUrl="~/gcam_exiomod.aspx" Text="GCAM-EXIOMOD" 
+                           Value="GCAM-EXIOMOD"></asp:MenuItem>
+                       <asp:MenuItem Text="Display Outputs" Value="Display Outputs" 
+                           NavigateUrl="~/fox_rabbit_output.aspx"></asp:MenuItem>
+                   </asp:MenuItem>
+                   <asp:MenuItem Text="Real Time Applications" Value="Real Time Applications">
+                       <asp:MenuItem Text="Real Time Access to models" 
+                           Value="Real Time Access to models" NavigateUrl="~/real_time_models.aspx"></asp:MenuItem>
+                       <asp:MenuItem NavigateUrl="~/real_time_integration.aspx" 
+                           Text="Real Time Integration" Value="Real time integration"></asp:MenuItem>
+                   </asp:MenuItem>
+                   <asp:MenuItem Text="Help" Value="Help">
+                       <asp:MenuItem Text="About" Value="About" NavigateUrl="~/frmAbout.aspx"></asp:MenuItem>
+                       <asp:MenuItem Text="FAQ" Value="FAQ"></asp:MenuItem>
+                   </asp:MenuItem>
+               </Items>
+           </asp:Menu>
+       
+       </td>
+     </tr>
+    </table>
+    <br />
+
+
+        <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        
+        </asp:ContentPlaceHolder>
+
+
+    </div>
+    </form>
+</body>
+</html>

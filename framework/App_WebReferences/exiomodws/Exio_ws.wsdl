@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="current_endyear">
+        <s:complexType />
+      </s:element>
+      <s:element name="current_endyearResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="current_endyearResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Exiomod">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="endyear" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ExiomodResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ExiomodResult" type="tns:ArrayOfString" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="current_endyearSoapIn">
+    <wsdl:part name="parameters" element="tns:current_endyear" />
+  </wsdl:message>
+  <wsdl:message name="current_endyearSoapOut">
+    <wsdl:part name="parameters" element="tns:current_endyearResponse" />
+  </wsdl:message>
+  <wsdl:message name="ExiomodSoapIn">
+    <wsdl:part name="parameters" element="tns:Exiomod" />
+  </wsdl:message>
+  <wsdl:message name="ExiomodSoapOut">
+    <wsdl:part name="parameters" element="tns:ExiomodResponse" />
+  </wsdl:message>
+  <wsdl:portType name="Exio_wsSoap">
+    <wsdl:operation name="current_endyear">
+      <wsdl:input message="tns:current_endyearSoapIn" />
+      <wsdl:output message="tns:current_endyearSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="Exiomod">
+      <wsdl:input message="tns:ExiomodSoapIn" />
+      <wsdl:output message="tns:ExiomodSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="Exio_wsSoap" type="tns:Exio_wsSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="current_endyear">
+      <soap:operation soapAction="http://tempuri.org/current_endyear" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Exiomod">
+      <soap:operation soapAction="http://tempuri.org/Exiomod" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="Exio_wsSoap12" type="tns:Exio_wsSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="current_endyear">
+      <soap12:operation soapAction="http://tempuri.org/current_endyear" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Exiomod">
+      <soap12:operation soapAction="http://tempuri.org/Exiomod" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Exio_ws">
+    <wsdl:port name="Exio_wsSoap" binding="tns:Exio_wsSoap">
+      <soap:address location="http://localhost:28776/Exio_ws.asmx" />
+    </wsdl:port>
+    <wsdl:port name="Exio_wsSoap12" binding="tns:Exio_wsSoap12">
+      <soap12:address location="http://localhost:28776/Exio_ws.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

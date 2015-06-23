@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:tns="http://fox/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" name="foxws" targetNamespace="http://fox/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="http://localhost:8080/foxws/foxws?xsd=1" namespace="http://fox/" />
+    </xsd:schema>
+  </types>
+  <message name="pop_inc">
+    <part name="parameters" element="tns:pop_inc" />
+  </message>
+  <message name="pop_incResponse">
+    <part name="parameters" element="tns:pop_incResponse" />
+  </message>
+  <message name="foxpop_inc">
+    <part name="parameters" element="tns:foxpop_inc" />
+  </message>
+  <message name="foxpop_incResponse">
+    <part name="parameters" element="tns:foxpop_incResponse" />
+  </message>
+  <portType name="foxws">
+    <operation name="pop_inc">
+      <input wsam:Action="http://fox/foxws/pop_incRequest" message="tns:pop_inc" />
+      <output wsam:Action="http://fox/foxws/pop_incResponse" message="tns:pop_incResponse" />
+    </operation>
+    <operation name="foxpop_inc">
+      <input wsam:Action="http://fox/foxws/foxpop_incRequest" message="tns:foxpop_inc" />
+      <output wsam:Action="http://fox/foxws/foxpop_incResponse" message="tns:foxpop_incResponse" />
+    </operation>
+  </portType>
+  <binding name="foxwsPortBinding" type="tns:foxws">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="pop_inc">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="foxpop_inc">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+  </binding>
+  <service name="foxws">
+    <port name="foxwsPort" binding="tns:foxwsPortBinding">
+      <soap:address location="http://localhost:8080/foxws/foxws" />
+    </port>
+  </service>
+</definitions>

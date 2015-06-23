@@ -1,0 +1,9 @@
+D:\prototype\call_rab2\rabws\rabws\bin\rabws.dll
+D:\prototype\call_rab2\rabws\rabws\bin\rabws.pdb
+D:\prototype\call_rab2\rabws\rabws\obj\Debug\ResolveAssemblyReference.cache
+D:\prototype\call_rab2\rabws\rabws\obj\Debug\rabws.dll
+D:\prototype\call_rab2\rabws\rabws\obj\Debug\rabws.pdb
+D:\prototype\rab_ws\rabws\rabws\bin\rabws.dll
+D:\prototype\rab_ws\rabws\rabws\bin\rabws.pdb
+D:\prototype\rab_ws\rabws\rabws\obj\Debug\rabws.dll
+D:\prototype\rab_ws\rabws\rabws\obj\Debug\rabws.pdb

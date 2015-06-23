@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="GCAM_Main">
+        <s:complexType />
+      </s:element>
+      <s:element name="GCAM_MainResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="GCAM_MainResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="update_stop_period">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="stopyear" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="update_stop_periodResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="update_stop_periodResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="query_Gcam">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="reg" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="sect" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="tech" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="query_GcamResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="query_GcamResult">
+              <s:complexType>
+                <s:sequence>
+                  <s:element ref="s:schema" />
+                  <s:any />
+                </s:sequence>
+              </s:complexType>
+            </s:element>
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="GCAM_MainSoapIn">
+    <wsdl:part name="parameters" element="tns:GCAM_Main" />
+  </wsdl:message>
+  <wsdl:message name="GCAM_MainSoapOut">
+    <wsdl:part name="parameters" element="tns:GCAM_MainResponse" />
+  </wsdl:message>
+  <wsdl:message name="update_stop_periodSoapIn">
+    <wsdl:part name="parameters" element="tns:update_stop_period" />
+  </wsdl:message>
+  <wsdl:message name="update_stop_periodSoapOut">
+    <wsdl:part name="parameters" element="tns:update_stop_periodResponse" />
+  </wsdl:message>
+  <wsdl:message name="query_GcamSoapIn">
+    <wsdl:part name="parameters" element="tns:query_Gcam" />
+  </wsdl:message>
+  <wsdl:message name="query_GcamSoapOut">
+    <wsdl:part name="parameters" element="tns:query_GcamResponse" />
+  </wsdl:message>
+  <wsdl:portType name="GCAMSoap">
+    <wsdl:operation name="GCAM_Main">
+      <wsdl:input message="tns:GCAM_MainSoapIn" />
+      <wsdl:output message="tns:GCAM_MainSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="update_stop_period">
+      <wsdl:input message="tns:update_stop_periodSoapIn" />
+      <wsdl:output message="tns:update_stop_periodSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="query_Gcam">
+      <wsdl:input message="tns:query_GcamSoapIn" />
+      <wsdl:output message="tns:query_GcamSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="GCAMSoap" type="tns:GCAMSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GCAM_Main">
+      <soap:operation soapAction="http://tempuri.org/GCAM_Main" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="update_stop_period">
+      <soap:operation soapAction="http://tempuri.org/update_stop_period" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="query_Gcam">
+      <soap:operation soapAction="http://tempuri.org/query_Gcam" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="GCAMSoap12" type="tns:GCAMSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GCAM_Main">
+      <soap12:operation soapAction="http://tempuri.org/GCAM_Main" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="update_stop_period">
+      <soap12:operation soapAction="http://tempuri.org/update_stop_period" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="query_Gcam">
+      <soap12:operation soapAction="http://tempuri.org/query_Gcam" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="GCAM">
+    <wsdl:port name="GCAMSoap" binding="tns:GCAMSoap">
+      <soap:address location="http://localhost/gcamws/gcam.asmx" />
+    </wsdl:port>
+    <wsdl:port name="GCAMSoap12" binding="tns:GCAMSoap12">
+      <soap12:address location="http://localhost/gcamws/gcam.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
